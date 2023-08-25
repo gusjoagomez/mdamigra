@@ -1,0 +1,27 @@
+Buenas, envío un archivo de ejemplo para que puedan trabajar con la estructura, de lo que arroja el como detalle de liquidación el sistema de NewRoll.
+La semana que viene preparo algún drive y voy dejando mes a mes todos los detalles.
+
+
+El nombre de los archivos se dan según los tipos de liquidaciones que son, ejemplo:  el archivo adjuntado corresponde al la habitual mensual (normal) de 12/2022, la empresa, como lo llaman ellos es la A MUNICIPALIDAD DE AVELLANEDA, que engloba casi todo, y el cód es un nro q se genera de forma automática cuando se abre la liqui.
+
+Si el detalle es de una liquidación adicional o especial (como dicen ellos) el nombre del archivo comenzará con E (ejemplo: EA674.csv)
+
+Las empresas que liquidan son:
+A     MUNICIPALIDAD DE AVELLANEDA       
+B     BECARIOS         
+C     CONTRATOS      
+D     DOCENTES      
+H     HORAS CATEDRA       
+L     LIMPIEZA Y RECOLECC. RESIDUOS    
+O     OTROS EXTERNOS (EJ: SERV.MED.)        
+P     PRE-JUBILATORIOS     
+S     EMPLEADOS SIN CUENTA     
+U     MUN.AVELLANEDA NORMAL APARTE     
+X     EMPRESA GENERICA    
+Z     EMPRESA A NO LIQUIDABLE 
+
+Las resaltadas son las que se liquidan habitualmente, la X y la Z generalmente asignan los legajos a esas empresas los cuales no van a liquidar, pero por alguna razón no le dan la baja definitiva.
+
+Los archivos que les voy a pasar los descargo directamente del sistema tal cual se los envío en formato csv, si les falta alguna información me dicen y vemos de donde la podemos sacar.
+
+

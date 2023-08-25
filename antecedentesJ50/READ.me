@@ -1,0 +1,154 @@
+Hola Gus! cómo estas? cómo te comenté, te paso 2 archivos para que, por favor, los unifiques y agregues un par de datos faltantes.
+
+El archivo antecedentes_j50.csv contiene los antecedentes cargados en J50 con la siguiente info:
+
+    legajo
+    cargo
+    fechaDesde
+    fechaHasta
+    empresa
+    computaParaAntig
+    computaParaVacac
+    fechaAceptacion
+
+El archivo antecedentes_NR.csv contiene algunos antecedentes migrados desde J50 al sistema de NewRoll y algunos registros nuevos con la siguiente info:
+
+    legajo
+    cargo
+    apellidoNombre
+    empresa
+    fechaDesde
+    fechaHasta
+    tipoAntiguedad
+    computaParaAntig
+    computaParaVacac
+
+La idea seria tomar inicialmente los datos q están en el archivo antecedentes_j50.csv y 
+tomar del archivo antecedentes_NR.csv que no están en el archivo anterior, 
+agregando la fechaAceptacion que no está creada.
+
+El dato que corresponde a la fechaAceptacion es el siguiente:
+
+
+    si el período entre las fechaDesde y la fechaHasta son menores o iguales al  31/12/1995 -> fechaAceptacion = 31/12/1995
+    si el período entre las fechaDesde y la fechaHasta son menores o iguales al  31/12/2012 -> fechaAceptacion = 31/12/2012
+    si el período entre las fechaDesde y la fechaHasta son mayores o iguales al  01/01/2013 -> fechaAceptacion = fechaHasta 
+    si el período entre las fechaDesde y la fechaHasta están entre los distintos cortes, hay que generar registros por separado. 
+    Ejemplo: 
+    	fechaDesde = 1/1/1994 y fechaHasta  = 1/1/2000, 
+    	     Entonces:hay que crear un registro con 
+    	         fechaDesde = 1/1/1994, fechaHasta = 31/12/1995, fechaAceptacion = 31/12/1995 
+    	     y otro registro con 
+    	         fechaDesde = 1/1/1996, fechaHasta = 1/1/2000  , fechaAceptacion = 31/12/2012
+
+El archivo final tiene que tener como columnas:
+
+    legajo
+    cargo
+    fechaDesde
+    fechaHasta
+    empresa
+    computaParaAntig
+    computaParaVacac
+    fechaAceptacion
+    tipoAntiguedad (de no existir el dato, dejarlo nulo) esta en NR y no en J50
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+EJEMPLO DE CORTE ENTRE FECHAS:
+
+
+-------------------------
+ARCHIVO J50
+-------------------------
+16152;3;19850301;19951231;MUNICIPALIDAD DE AVELLANEDA DTO. 520/85;S;S; ;19951231;
+16152;3;19960101;20000228;MUNICIPALIDAD DE AVELLANEDA DEC. 520/85;S;S; ;20121231;
+-------------------------
+Los que estan en NR y NO en J50 deberia desglosarlos..
+
+
+
+
+
+
+
+
+Cualquier cosa lo vamos hablando..
+
+--------------------------------------------------------
+Especificaciones 
+--------------------------------------------------------
+* TABLA EMPLEADO_J50
+Realizar un programa en golang con biblioteca GORM que importe a una tabla postgres desde un archivo CSV con separador "punto y coma" (semicolon) y contiene las siguientes columnas:
+
+    legajo integer,
+    cargo integer
+    fechaDesde date format Ymd,
+    fechaHasta date format Ymd,
+    empresa varchar(100)
+    computaParaAntig char(1),
+    computaParaVacac char(1),
+    fechaAceptacion date format Ymd
+    
+--------------------------------------------------------
+Realizar un programa en golang con biblioteca GORM que importe a una tabla postgres desde un archivo CSV con separador "punto y coma" (semicolon) y contiene las siguientes columnas:
+
+    legajo integer,
+    cargo integer,
+    apellidoNombre varchar(100),
+    empresa  varchar(100),
+    fechaDesde date format d/m/Y,
+    fechaHasta date format d/m/Y,
+    tipoAntiguedad varchar(3),
+    computaParaAntig  char(1),
+    computaParaVacac char(1)
+
+    
+--------------------------------------------------------
+Make a program in goland using GORM library to Read a table with the structure
+
+type EmpleadoJ50 struct {
+	Legajo            int
+	Cargo             int
+	FechaDesde        *time.Time 
+	FechaHasta        *time.Time 
+	Empresa           string     
+	ComputaParaAntig  string     
+	ComputaParaVacac  string     
+	FechaPresentacion *time.Time 
+	FechaAceptacion   *time.Time 
+}
+
+fetch each record and find in other table by Legajo and Cargo with this structure:
+
+type EmpleadoNR struct {
+	Legajo           int
+	Cargo            int
+	ApellidoNombre   string
+	Empresa          string
+	FechaDesde       *time.Time
+	FechaHasta       *time.Time
+	TipoAntiguedad   string
+	ComputaParaAntig string
+	ComputaParaVacac string
+}
+
+if found Write a third table with following structure:
+
+type EmpleadoRES struct {
+	Legajo            int
+	Cargo             int
+	FechaDesde        *time.Time
+	FechaHasta        *time.Time
+	Empresa           string
+	ComputaParaAntig  string
+	ComputaParaVacac  string
+	FechaPresentacion *time.Time
+	FechaAceptacion   *time.Time
+	TipoAntiguedad    string
+}
+    
+    
+
+

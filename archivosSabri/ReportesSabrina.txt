@@ -1,0 +1,26 @@
+NA420.csv: Detalle de Liquidacion. Se descarga directamente de la aplicacion NewRol.
+           Antecedentes va a pasar: Se descarga directamente de la aplicacion NewRol.
+           Inasistencias (cant dias mes, cuanto se descuenta.. es un excel de control de asistencias. Lo cargan en newrol y otro modulo lo pasa al sistema de liquidacion (llegada tarde e inasistencia) lo arma sabrina y lo pasa a liquidacion.
+los legajos (viejos) se sacan del J50. Las altas del 2020 se bajan los informes  y se arma un rejunte de datos (3 bases)
+El legajo lo esta completando con algo que ya tiene. mas datos que consigue de newrol.
+La imputacion de rafam en el informa de detalle no esta pero lo consigue.
+Legajo, concepto, cantidad, mes-año.
+Deberiamos ver primero que precisamos.. para ver si los reportes que tiene el sistema nos sirve.
+Reporte: concepto de calculo.
+en general se obtienen de: J50, newrol y planillas de las areas.
+
+En J50 teniamos acumuladores... eje. datos para semestre. Pero newrol una persona pasa a sueldo dice quetiene mas de 10 inasistencias, se controla manualmente y se impacta en un excel. metodo manual.
+algunos conceptos como vacaciones, maternidad, reserva de puesto, etc etc,,, (excepto sin goce de haberes) NO afectaria a la liquidacion.
+
+
+Tenemos informe de asignacion familiar. Ejemplo: informe de hijos.. Sabrina pidio este informe y lo agregaron en el sistema como nuevo reporte para descargar.
+Lo que se paga por hijo solo hay un S o N. NO hay porcentaje de hijo en el sistema.. El porcentaje de siradig es lo declarado.
+
+
+Antecedentes.. son trabajos de otro lado que reconocen.. Aca la antiguedad tiene un % hasta 96 (45) de 96 51 y 2013 vuelve %4. En j50 lo teniamos... tal antecedente correspondia a tal año. 
+actuelmente no sabemos como se hace en NewRol.. se puede hacer 
+
+Archivos de obra social para subir al sicos (sistema de anses)
+
+Sabrina copia datos de una "pantalla ADM tablas". ejemplo. Basico y categoria.. copia y pega en un excel.
+

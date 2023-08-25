@@ -1,0 +1,15 @@
+Gus te paso los archivos de los detalles de liquidación de junio, están los haberes mensuales y el SAC,  
+
+Las letras de cada nombre de archivo significa que pertenece a:
+    D: Docentes
+    H: Horas Cátedras
+    P: Prejubilados
+    B: Becarios
+    L: Limpieza (camioneros)
+    A: Resto de empleados (planta, mensualizados, médicos..)
+
+El formato de los archivos es siempre como estos y tengo que descargar una por una, 
+también hay liquidaciones adicionales, pero no las tengo descargadas, 
+cualquier cosa que necesites me avisas
+
+

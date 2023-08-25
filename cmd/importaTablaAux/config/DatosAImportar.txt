@@ -1,0 +1,5 @@
+de la tabla general tenes que tomar el 
+grupoId = 
+1007 PLANTAS DE PERSONAL 
+1012 GRUPOS DE PERSONAL 
+1013 GRUPO DE LIQUIDACION
