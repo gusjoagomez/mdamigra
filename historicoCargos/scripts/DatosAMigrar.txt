@@ -1,0 +1,255 @@
+
+Set de datos migrar datos historicos:
+
+* categoria, fechaingreso, antiguedad
+
+----------------------------------------------------------------------
+Ejemplos:
+----------------------------------------------------------------------
+ID: 8874  Legajo: 15392 DNI: 18356895 Nombre: DAVID ROBERTO
+ID: 30016 Legajo: 18777 DNI: 17637413 Nombre: JAVIER ALEJANDRO MARCOS
+ID: 12098 Legajo: 38128 DNI: 27565059 Nombre: SABRINA LILIAN IORGI
+ID: 12663 Legajo: 36293 DNI: 23156651 Nombre: GUSTAVO JOAQUIN GOMEZ
+----------------------------------------------------------------------
+ 
+legajos con cambio de cargo y cantidad de veces que cambiaron en el ultimo año:
+42941	4
+32835	4
+44309	4
+43717	4
+44446	3
+43183	3
+41420	3
+47304	3
+34758	3
+42369	3
+42423	3
+44727	3
+
+---------------------------------------------------------------------------------------------
+PROCEDIMIENTO PARA LLENAR LA TABLA CARGO
+---------------------------------------------------------------------------------------------
+Se		
+
+
+Se debera buscar en la tabla cargo por:
+ * LEGAJO, CARGO, FECHAINGRESOALCARGO
+
+---------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+Tabla cargo
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+id:                          X*** SERIAL/PK
+activado                     **** (true/false)
+creadoEn:                    **** now
+modificadoEn:                **** NULL
+eliminadoEn:                 **** NULL
+activadoEn:                  **** 2024-11-04 00:00:00.000 fecha a futuro?
+legajo:                      X***  
+nroCargo:                    X*** 
+nroNormaDeIngreso:           **** PREGUNTAR A SABRINA **** algunos en nulo
+fechaDeNormaDeIngreso:       **** Algunos en nulo ****
+fechaIngresoAlCargo:         X*** LEGAJOCATEG:fechaIng
+fechaIngresoAntiguedad:      **** Se podria calcular segun la liquidacion
+fechaIngresoVacaciones:      **** 
+fechaDeEgreso:               **** 
+nroNormaDeDesvinculacion:    **** 
+fechaNormaDeDesvinculacion:  **** 
+marcaParaLiquidar:           X*** 
+idEmpleado:                  X*** REF: empleado:id
+idPuesto:                    X*** REF: general:id
+idPlantaDePersonal:          X*** REF: general:id
+idGrupoDePersonal:           X*** REF: general:id
+idFuncionDePersonal:         X*** REF: general:id
+idGrupoDeLiquidacion:        X*** REF: general:id
+idSituacionDelEmpleado:      X*** REF: general:id
+idDependencia:               **** REF: dependencia:id
+idNormaDeIngreso:            **** REF: general:id (1004-TIPOS DE NORMAS ADMINISTRATIVAS)
+idMotivoDeIngreso:           X*** REF: general:id
+idMotivoDeBaja:              **** REF: general:id
+idNormaDeDesvinculacion:     **** REF: general:id
+fechaVersionDesde:           X*** 
+fechaVersionHasta:           **** 
+idCategoria:                 **** REF: general:id
+idDependenciaPresupuestaria: **** REF: dependencia:id
+fechaBaja:                   **** 
+observaciones:               **** string
+creadoPorId                  **** REF: seguridadUsuario:id
+modificadoPorId              **** REF: seguridadUsuario:id
+eliminadoPorId               **** REF: seguridadUsuario:id
+activadoPorId                **** REF: seguridadUsuario:id
+iddepenciapresupuestaria     ****	 
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+select distinct l.ano,  l.legajo ,  l.cargo ,  l.fechaingcateg , l."codCateg" ,l."descCateg", g.id as idCategoria, g.nombre ,
+                er.fecha_desde , er.fecha_hasta , er.fecha_presentacion , er.fecha_aceptacion 
+from migracion.legcategh l 
+      left join general g on g."auxEntero1" = l."codCateg"::int and g."grupoId" =1006
+      left join migracion."empleadoRES" er on er.legajo = l.legajo and er.cargo = l.cargo
+where l.legajo = '18777'
+order by er.fecha_desde
+---------------------------------------------------------------------------------------------
+
+
+
+select ano, mes,legajo, cargo, fechaingcateg, codCateg, descCateg
+from legcateghselect ano, mes,legajo, cargo, fechaingcateg, codCateg, descCateg
+from legcategh
+
+                                       categ
+2023	38128	1	2002-03-01	1412	12   TECNICO CAT.12           
+2023	38128	2	2021-05-10	1216	J3    JEFE DE DEPARTAMENTO
+
+categ 80,72
+
+
+
+	//--- Trae los registros de la tabla que paso Sabrina
+	sql := `SELECF distinct  l.legajo ,  l.cargo ,  l.fechaingcateg , g.id as idCategoria
+			FROM  migracion.legcategh l 
+		  		left join general g on g."auxEntero1" = l."codCateg"::int and g."grupoId"=1006
+			ORDER BY legajo, cargo, idcategoria`
+	rows, err := db.Raw(sql).Rows()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	//--- RECORRE REGISTROS NEWROL ---
+	for rows.Next() {
+		var REC LegCategH
+		err := rows.Scan(&REC.Legajo, &REC.Cargo, &REC.Fechacateg, &REC.Idcategoria)
+		if err != nil {
+			log.Fatal(err)
+		}
+		
+		existe := existeCargo(db , REC.Legajo, REC.Cargo)
+		if existe == false {
+			insertarRegistroCargo(db, REC)
+		}
+	}
+
+	fmt.Println("FIN DEL PROCESO")
+}
+
+
+// ----------------------------------------------
+// Obtiene Nro.Empleado de empleados
+// ----------------------------------------------
+func traerIdEmpleado(db *gorm.DB, legajo: int) {
+	
+	var Empleado models.Empleado
+	if err := db.Where("legajo = ?", legajo).First(&empNR).Error; err != nil {
+		IdEmpleado = -1
+	} else {
+		IdEmpleado = Empleado.id
+	}
+	return IdEmpleado
+}
+
+// ----------------------------------------------
+// Existe cargo en talba cargos
+// ----------------------------------------------
+func existeCargo(db *gorm.DB, legajo, cargo: int) bool {
+
+	var idEncontrado int
+
+	sql := fmt.Sprintf("SELECT id FROM \"public\".\"cargo\" WHERE legajo = %d AND \"nroCargo\" = '%d'", legajo, cargo)
+	rows, err := db.Raw(sql).Rows()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		err = rows.Scan(&idEncontrado)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	return (idEncontrado > 0)
+}
+
+// ----------------------------------------------
+// importarRegistro de cargo
+// persiste registro en tabla cargo
+// ----------------------------------------------
+func insertarRegistroCargo(db *gorm.DB, REC LegCategH) {
+	var ret bool
+
+	IdEmpleado := traerIdEmpleado(db,REC.Legajo)
+	funcionPersonal := traerFuncionPersonal(db,REC.Legajo, REC.Fechacateg )
+
+	fmt.Println("INSERTANDO (legajo,cargo,fechaCat,IdCategoria): ",REC.Legajo, REC.Cargo, REC.Fechacateg, REC.Idcategoria )
+
+	ahora := time.Now()
+	unCargo := models.Cargo{
+		//Id:
+		//ModificadoEn
+		//EliminadoEn
+		Activado: true,
+		CreadoEn: ahora,
+		ActivadoEn: ahora,
+		Legajo: REC.Legajo,
+		NroCargo: REC.Cargo,
+		//NroNormaDeIngreso:
+		FechaDeNormaDeIngreso: REC.Fechacateg,
+		FechaIngresoAlCargo: REC.Fechacateg,
+		//FechaIngresoAntiguedad
+		//FechaIngresoVacaciones
+		//FechaDeEgreso
+		//NroNormaDeDesvinculacion
+		//FechaNormaDeDesvinculacion
+		MarcaParaLiquidar: 'X',
+		IdEmpleado: IdEmpleado,
+		IdPuesto: 4155, 
+		IdPlantaDePersonal: 3798, //sin informar
+		IdGrupoDePersonal: 3801, //sin informar
+		IdFuncionDePersonal: funcionPersonal, 
+		IdGrupoDeLiquidacion: 3802, //sin informar
+		IdSituacionDelEmpleado: 3806, //sin informar
+		//IdDependencia:
+		//IdNormaDeIngreso:
+		IdMotivoDeIngreso: 3789, //sin informar
+		//IdMotivoDeBaja:
+		//IdNormaDeDesvinculacion:
+		FechaVersionDesde: REC.Fechacateg
+		//FechaVersionHasta:
+		IdCategoria: REC.Idcategoria,
+		//IdDependenciaPresupuestaria:
+		//FechaBaja:
+		Observaciones: '',
+		CreadoPorId: -1,
+		//ModificadoPorId
+		//EliminadoPorId
+		ActivadoPorId: -1
+	}
+	if err := db.Create(&unCargo).Error; err != nil {
+		log.Fatalf("Error al insertar cargo: %v", err)
+		ret = false
+	} else {
+		ret = true
+	}
+	return ret
+}
+
+
+// ----------------------------------------------
+// Obtiene Nro.Empleado de empleados
+// ----------------------------------------------
+func traerFuncionPersonal(db *gorm.DB, legajo int, fecha Date) Date){
+	funper int
+	var Cargo models.Cargo
+	if err := db.Where("legajo = ? AND fechaIngresoAlCargo > ?", legajom fecha).First(&Cargo).Error; err != nil {
+		funper = -1
+	} else {
+		funper = Cargo.IdFuncionDePersonal
+	}
+	return funper
+}
+

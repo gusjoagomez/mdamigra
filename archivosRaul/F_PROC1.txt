@@ -1,0 +1,190 @@
+
+FANOANT(;31/12/1995)          ,154
+FANOANT                       ,49
+FANOANT(;30/04/1996)          ,49
+FANOANT(;31/12/2012)          ,32
+
+
+	* Calcula cantidad de años de Antiguedad, 
+	* Si el procedimiento no recibe las fechas desde y hasta como parametro es porque quiere la antiguedad total*.
+        * Si tiene fechas desde y/o hasta, debe obtener la antiguedad por periodo, ya que realiza los cortes según el % a aplicar (4% - 1% - 4%)
+        
+        * El campo kantadicom de la tabla cargo tiene la cantidad de dias de antecedentes menos las L/S/G en total, 
+          esta tabla es actualizada cuando se carga un antecedente en la tabla antec o cuando se carga una L/S/G en inas
+        
+        * El campo kantadicom de la tabla cargoant tiene la cantidad de dias de antecedentes menos las L/S/G en el periodo correspondiente, 
+          esta tabla es actualizada cuando se carga un antecedente en la tabla antec o cuando se carga una L/S/G en inas
+        
+
+FHIJOSI                       ,147
+
+	Cantidad de hijos incapacitados, khijosi - Tabla sala
+	
+FHIJOS                        ,147
+
+	Cantidad de hijos, khijos - Tabla sala
+
+FNACIM                        ,98
+
+	Fecha de nacimieento de la tabla emple
+	
+FMATRIM                       ,98
+
+	Marca de matrimonio, mmatri - Tabla sala
+
+FESPOSA                       ,49
+
+	Marca de Esposa, mesposa - Tabla sala
+
+FADOP                         ,49
+	
+	Cantidad de hijos adoptados, kadopcion - Tabla sala
+
+FHIJMEN                       ,49
+	
+	Cantidad de hijos menores, khijmen - Tabla sala	
+
+FAYU1A3                       ,98
+
+	Ayuda escolar preesc/prim - kayuesc13 - Tabla sala
+ 
+FAYU1A3I                      ,49
+
+	Ayuda escolar preesc/prim incapacitado - kayuesc13i - Tabla sala
+
+FAYU4A7                       ,98
+	
+	Ayuda escolar secundaria, kayuesc47 - Tabla sala	
+
+FAYU4A7I                      ,49
+
+	Ayuda escolar secundaria incapacitado, kayuesc47i - Tabla sala
+	
+FPRENAT                       ,98
+
+	Prenatal numerosa,  mprenum -  Tabla sala
+
+FTERCIA                       ,49
+
+	Hijo en  Terciario, kescter - Tabla sala
+
+FTERCIAI                      ,49
+
+	Hijo incapacitado en Terciario, kescteri - Tabla sala
+
+FSECUN                        ,49
+
+	Hijo en escuela secundaria, kescsec - Tabla sala
+	
+FSECUNI                       ,49
+
+	Hijo incapacitado en escuela secundaria, kescsec - Tabla sala
+
+FPRIMA                        ,49
+	
+	Hijo en escuela primaria, kescpri  - Tabla sala
+
+
+FPREESCI                      ,49
+
+	Hijo incapacitado en edad preescolar, kpreesci - Tabla sala
+
+
+FPRIMAI                       ,49
+
+	Hijo incapacitado en escuela primaria, kescprii  - Tabla sala
+	
+FPREESC                       ,49
+
+	Hijo en edad preescolar, kpreesc - Tabla sala
+
+
+FSUMSAL                      ,40
+
+	Busca el acumulado para el calculo  de Salario
+	
+
+FVARIABLE(PERIODO_LIQUIDACION),63
+
+
+	Grupo de liquidacion del cargo en proceso
+
+
+FMESDIF(RECIBO;LIQUIDACION)   ,49
+
+
+	Diferencias entre fecha de recibo y liquidacion
+	
+	
+FDIASEM                       ,49
+
+
+	PROPORCION DIAS TRABAJADOS EN SEMESTRE, sale del campo kdiadessac de la tabla desco, kdiadessac != 0 es cuando se descontó el día no justificado.
+	La suma de estos días se descuentan a 360, si la fecha de ingreso del empleado es anterior al año en curso, o se le resta a la cantidad de días desde la fecha de ingreso 
+	a la fecha actual
+
+
+FMESTRAANO                    ,49
+
+	Meses trabajados en el año
+	
+
+FBUSEXLAB                     ,40
+
+	PROCEDIMIENTO DE BUSQUEDA 1024 PERIODO ANT PAR ACALCULO ASIG FAMILIAR
+	IMPORTE EXTRA LABORAL PER JERARQUICO 
+	
+	
+FAYUTER                       ,21
+
+	return 0.0 - ES LO ÚNICO QUE HACE EL PROCEDIMIENTO
+
+
+FOSOCSAC(28028.97)            ,13
+FOSOCSAC(92295,13
+FOSOCSAC(79514.40)            ,26
+FOSOCSAC(4675.65)             ,13
+
+	Busca el acumulado para cálculo de O.S y aplica los topes de Obra Social Aportes para SAC pasados por parámetros
+
+FOSOC(99000)                  ,13
+FOSOC(198435.52)              ,4
+FOSOC(8711.82)                ,4
+FOSOC(56057.93)               ,4
+FOSOC(159028.80)              ,4
+
+	Busca el acumulado para cálculo de O.S y aplica los topes de Obra Social Aportes  pasados por parámetros
+	
+	
+FCATPRI
+
+	ccatpri de extra se genera a partir de la tabla categ, selecciona de la tabla categ el campo ccateg con el mtipcat(tipo de categoria) = "P" (principal)
+	y la copia en ccatpri
+	
+FPROASI
+
+	Busca el acumulado para el calculo  de Salario por cargo
+
+	
+FCATREEM
+	
+	Levanta la categoria de reemplazo, este dato generalmente se utiliza para realizar
+	el cálculo de diferencia de básico con respecto a la categoria que cobra de manera habitual
+	
+FMESTRAANOG
+
+	Devuelve meses trabajados para GANANCIA hasta mes de PAGO
+
+FSUMSAL1
+
+	PROCEDIMIENTO SUMA IMPORTE PARA CALCULO  ASIG FAM
+
+FSGARANTIA
+
+	Busqueda el acumulado para calcular Garantia Salarial
+
+FDIASACANT
+
+	Se utiliza para obtener la cantidad de dias que fueron computados para el SAC del a$o anterior. (Esta funcion es usada en general para el 
+	calculo de l aguinaldo de los docentes para determinar la cantidad de dias que se le debe pagar por receso escolar
+	Osea seria la cantidad de dias netos que trabajo el empleado (esta informacion se obtiene de los SAC del a$o anterior al que se esta liquidando

@@ -1,0 +1,14 @@
+Hola
+necesito hacerte una pregunta de go
+https://go.dev/play/p/s1H89W1NxOU
+type MaxInterface interface {
+	// Len is the number of elements in the collection.
+	Len() int
+	//Get returns the element with index i in the collection
+	Get(i int) interface{}
+	//Bigger returns whether the element at index i is bigger that the j one
+	Bigger(i, j int) bool
+}
+creo que acá está mi pregunta Get(i int) interface{}
+que pasa si yo tuviera Get(i float) interface{}
+lo repito como lo escribi o pongo Get(i interface{}) interface{}

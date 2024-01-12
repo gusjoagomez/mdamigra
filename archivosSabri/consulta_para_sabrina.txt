@@ -1,0 +1,79 @@
+
+Preguntar a sabrina cuando queda mitad en un periodo y mitad en otro.
+Deberia calcularse NO por año sino por mes. Consultarlo con Sabrina.
+
+Antiguedad en 3 periodos deberia sumarse en los 3 periodos y deberia dar lo mismo. Lo correcto seria por dia. y luego pasar de dias a meses.
+Pregunta como se toma por dia. calcular desde el "cumpleanos" de dia entrado.. O calcular por rango de tiempo depende de biciesto o no.
+Por cumpleanos y el resto por cantidad de dias sumar y dividir por 30.
+Tener en cuenta la fecha ingreso versionado. para ver los temas de anios reconocidos. Ver fecha de antiguedad reconocida.
+Ver como calcular y en que tablas y el versionado.
+*** Licencia sin goce de sueldo NO suma antiguedad.
+
+liqui_cons
+
+
+
+
+CREATE TABLE public.liquis (
+	id bigserial NOT NULL,
+	created_at timestamptz NULL,
+	updated_at timestamptz NULL,
+	deleted_at timestamptz NULL,
+	id_agr int8 NULL,
+	id_plaper int4 NULL,
+	id_gruper int4 NULL,
+	anio_liq int4 NULL,
+	mes_liq int4 NULL,
+	anio_dev int4 NULL,
+	mes_dev int4 NULL,
+	anio_gan int4 NULL,
+	mes_gan int4 NULL,
+	tipo_liq text NULL,
+	stipo_liq int2 NULL,
+	fecha_pago timestamptz NULL,
+	descripcion text NULL,
+	anulacion text NULL,
+	fecha_liq text NULL,
+	id_estado int2 NULL,
+	nro_legajo_desde int4 NULL,
+	nro_legajo_hasta int4 NULL,
+	fec_ini_proc timestamptz NULL,
+	fec_fin_proc timestamptz NULL,
+	CONSTRAINT liquis_pkey PRIMARY KEY (id)
+);
+CREATE INDEX idx_liquis_deleted_at ON public.liquis USING btree (deleted_at);
+
+
+	"id",
+        "anioMesLiquidador",
+        "anioMesDevengado",
+        "anioMesPago",
+        "fechaDesde",
+        "fechaPago",
+        "fechaLiquidacion",
+        "numeroLegajoDesde",
+        "numeroLegajoHasta",
+        "numeroCargoDesde",
+        "numeroCargoHasta",
+        "fechaInicioProcedimiento",
+        "fechaFinProcedimiento",
+        "subtipoLiquidacion",
+        "descripcion",
+        "anulacion",
+        "tipoLiquidacionId",
+        "estadoId",
+        "estadoProcesoId",
+         creadoEn
+         modificadoEn
+          eliminadoEn
+         activadoEn
+         activado
+
+
+
+CREATE USER 'admin'@'%' IDENTIFIED BY 'password';
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+

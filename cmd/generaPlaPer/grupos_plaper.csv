@@ -1,0 +1,52 @@
+"centidad","cplaper","cgruper","cgruuni","cantidad","planta_per","grupo_per","grupo_concepto"
+100,1,1,1,193,PLANTA PERMANENTE                                 ,SUPERIOR                                          ,PERSONAL SUPERIOR                                 
+100,1,2,2,276,PLANTA PERMANENTE                                 ,JERARQUICO                                        ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,3,2,156,PLANTA PERMANENTE                                 ,PROFESIONAL                                       ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,4,2,347,PLANTA PERMANENTE                                 ,TECNICO                                           ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,4,14,16,PLANTA PERMANENTE                                 ,TECNICO                                           ,PERSONAL TECNICO                                  
+100,1,5,2,1237,PLANTA PERMANENTE                                 ,ADMINISTRATIVO                                    ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,5,21,17,PLANTA PERMANENTE                                 ,ADMINISTRATIVO                                    ,SUP-JER-HCD S/866                                 
+100,1,6,2,885,PLANTA PERMANENTE                                 ,OBRERO                                            ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,7,2,713,PLANTA PERMANENTE                                 ,SERVICIO                                          ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,9,2,123,PLANTA PERMANENTE                                 ,INSPECCION                                        ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,11,2,53,PLANTA PERMANENTE                                 ,JERARQUIZADO (JERARQUICO SIN FUNCION)             ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,12,2,59,PLANTA PERMANENTE                                 ,PERSONAL DE LA SALUD                              ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,13,2,122,PLANTA PERMANENTE                                 ,DOCENTE ASISTENCIAL                               ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,1,13,18,114,PLANTA PERMANENTE                                 ,DOCENTE ASISTENCIAL                               ,BONIFICACIONES DOCENTES ASISTENCIALES             
+100,1,35,2,43,PLANTA PERMANENTE                                 ,MUSICOS ORQUESTA                                  ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,2,3,9,20,CARRERA MCA.HOSPITALARIA                          ,PROFESIONAL                                       ,CARRERA MEDICO HOSPITALARIA                       
+100,2,39,9,315,CARRERA MCA.HOSPITALARIA                          ,CARRERA MEDICA                                    ,CARRERA MEDICO HOSPITALARIA                       
+100,2,39,20,20,CARRERA MCA.HOSPITALARIA                          ,CARRERA MEDICA                                    ,MEDICOS INSALUBRES                                
+100,3,2,2,12,PREJUBILADOS                                      ,JERARQUICO                                        ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,3,2,6,33,PREJUBILADOS                                      ,JERARQUICO                                        ,PREJUBILADOS                                      
+100,3,3,6,33,PREJUBILADOS                                      ,PROFESIONAL                                       ,PREJUBILADOS                                      
+100,3,4,6,19,PREJUBILADOS                                      ,TECNICO                                           ,PREJUBILADOS                                      
+100,3,5,2,17,PREJUBILADOS                                      ,ADMINISTRATIVO                                    ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,3,5,6,38,PREJUBILADOS                                      ,ADMINISTRATIVO                                    ,PREJUBILADOS                                      
+100,3,6,6,56,PREJUBILADOS                                      ,OBRERO                                            ,PREJUBILADOS                                      
+100,3,7,6,83,PREJUBILADOS                                      ,SERVICIO                                          ,PREJUBILADOS                                      
+100,3,8,6,22,PREJUBILADOS                                      ,DOCENTE EDUCACION Y CULTURA                       ,PREJUBILADOS                                      
+100,3,9,6,22,PREJUBILADOS                                      ,INSPECCION                                        ,PREJUBILADOS                                      
+100,3,10,6,13,PREJUBILADOS                                      ,HORA CATEDRA                                      ,PREJUBILADOS                                      
+100,3,39,9,15,PREJUBILADOS                                      ,CARRERA MEDICA                                    ,CARRERA MEDICO HOSPITALARIA                       
+100,4,4,4,122,PROGRAMA INTE.DE TRABAJO                          ,TECNICO                                           ,AUXILIARES / ASESORES                             
+100,5,5,10,20,PERSONAL DOCENTE                                  ,ADMINISTRATIVO                                    ,PERSONAL DOCENTE                                  
+100,5,8,10,412,PERSONAL DOCENTE                                  ,DOCENTE EDUCACION Y CULTURA                       ,PERSONAL DOCENTE                                  
+100,5,8,13,40,PERSONAL DOCENTE                                  ,DOCENTE EDUCACION Y CULTURA                       ,DOCENTES JORNADA COMPLETA                         
+100,5,15,10,13,PERSONAL DOCENTE                                  ,DOCENTES REEMPLAZANTE                             ,PERSONAL DOCENTE                                  
+100,5,52,10,55,PERSONAL DOCENTE                                  ,DOCENTE JIM FNE                                   ,PERSONAL DOCENTE                                  
+100,6,4,16,24,MENSUALIZADOS                                     ,TECNICO                                           ,MENSUALIZADOS                                     
+100,6,5,16,74,MENSUALIZADOS                                     ,ADMINISTRATIVO                                    ,MENSUALIZADOS                                     
+100,6,13,18,39,MENSUALIZADOS                                     ,DOCENTE ASISTENCIAL                               ,BONIFICACIONES DOCENTES ASISTENCIALES             
+100,6,23,8,11,MENSUALIZADOS                                     ,EMPLEADO H.C.D.MENSUALIZADOS                      ,ASESORES DDE BLOQUES DEL H.C.D.                   
+100,6,40,16,28,MENSUALIZADOS                                     ,PERSONAL MENSUALIZADO                             ,MENSUALIZADOS                                     
+100,7,10,10,13,HORAS CATEDRA                                     ,HORA CATEDRA                                      ,PERSONAL DOCENTE                                  
+100,7,10,11,271,HORAS CATEDRA                                     ,HORA CATEDRA                                      ,HORAS CATEDRA                                     
+100,7,16,12,87,HORAS CATEDRA                                     ,HORA CATEDRA                                      ,HORAS CATEDRAS SALUD/PLANIFICACION                
+100,9,2,2,21,HONORABLE CONCEJO DELIBERANTE                     ,JERARQUICO                                        ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,9,20,7,45,HONORABLE CONCEJO DELIBERANTE                     ,CONCEJALES                                        ,CONCEJALES                                        
+100,9,21,8,11,HONORABLE CONCEJO DELIBERANTE                     ,SUPERIOR H.C.D.                                   ,ASESORES DDE BLOQUES DEL H.C.D.                   
+100,9,22,8,97,HONORABLE CONCEJO DELIBERANTE                     ,ASESOR H.C.D                                      ,ASESORES DDE BLOQUES DEL H.C.D.                   
+100,9,23,2,25,HONORABLE CONCEJO DELIBERANTE                     ,EMPLEADO H.C.D.MENSUALIZADOS                      ,"PERSONAL JERARQUICO,PLANTA,                       "
+100,9,23,8,35,HONORABLE CONCEJO DELIBERANTE                     ,EMPLEADO H.C.D.MENSUALIZADOS                      ,ASESORES DDE BLOQUES DEL H.C.D.                   
+100,9,33,22,195,HONORABLE CONCEJO DELIBERANTE                     ,TEMPORARIOS H.C.D.                                ,MENSUALIZADOS S/866                               

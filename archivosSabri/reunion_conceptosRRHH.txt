@@ -1,0 +1,86 @@
+11 de septiembre 2023
+
+Temas tratados: 
+   Ausentismos, Antecedentes, Antigüedad, Hs.Extras, Embargos, Asig.Familiares.
+
+Antecedentes:
+  El sistem deberia contemplar que aún una persona tiene antigüedad.
+  En J50 se configuraba una licencia que "restaba" dias.
+  En NR se creó un concepto "licencia sin goce"
+
+  Cuando se carga y se aprueba una licencia puede haber pasado varios meses. Entonces hay que hacerlo retroactivo
+
+  Proceso de extraccion sobre los antecedentes para calcular la antiguedad (esto se hace con una formula)
+  En la formaula deberia  Sumar (+) antecedentes y restar (-) licencia sin goce.
+  Mes_devengado -> cuantos periodos se suman al tipo.
+
+Licencia sin goce:
+  Se descuentan los dias a la antigüedad.
+  Deberiamos tener un lugar ya calculado por periodo.
+  No se precisan todos los antecedentes.
+  En J50 tenia cantidad de dias. Tomaba los dias y los sumaba a: (F.Ing - F.Egreso)  (360 dias)
+
+  ¿Que es el sicos? ¿Que son las rectificativas?
+
+  **Antiguedad que NO esta en el recibo de sueldo
+
+  Deberia tener una tabla con: 
+   * legajo, cargo, cantidad, unidad  (esto guarda cuanto tiempo trabajó afuera)
+
+
+Licencia sin goce:
+  Hoy el usuario carga una planilla excel en el sistema.
+  Deberia tener la misma estructura de tabla mas un campo que diga si es: ANT o LIC (antecedente o licencia)
+
+Modulo de Inasistencia:
+  Debe guardar F.desde y F.hasta de la inasistencia. 
+  (No es lo mismo calcular por meses, por dias o por porcentaje de mes)
+
+Embargos:
+  Se puede embargar hasta el 30% del ingreso de la persona.
+  NewRol: Si tiene monton fijo cargan el monto fijo y descuenta mes a mes. Con un tope de 30%.
+  Deberia haber un modulo de embargos en el sistema.
+  Tabla candidata: legajo, F.desde, F.hasta, $descuento, %descuento, %
+  Los tipos de descuento pueden ser 3: (pregunar a Sabrina)
+   * El que es mes a mes se descuenta: 
+     - MontoTotal
+     - Descuento por mes
+  * Importe mensual
+
+Asignaciones Familiares:
+
+   - Ingreso conyugue (cuanto gana el conyugue $ )
+   - Si el empleado tiene otro ingreso
+   - conceptos de calculo (100% o 50%)
+   - Progenitor / Ingreso propio
+
+    Se guarda por:  legajo y cargo. En realidad se debe seleccionar (de todos los cargos) un (1) cargo al que se le va a liquidar todo esto.
+
+    El problema es cuando se da de baja un cargo. Se pierde la historia de cual cargo se liquidaba.
+
+Horas Extra:
+   Puede ser al 100% o al 50%
+   Hay que guardar si Corresponde o No corresponde aplicar Ganancias a estas horas.
+   Hay conceptos aparte.
+   Hoy hay 2 conceptos 1) Va ganancia o 2) NO va ganancias
+
+   Las de 100% tienen 50% exento
+   Ej: los medicos 100% y 50% van excentos
+   DEPENDE DEL CONVENIO .
+
+   Se deberia guardar:  legajo, cargo, cantidad, importe, concepto
+     donde cantidad=cantidad horas extra
+           importe=es el importe a pagar pos las horas.
+           NOTA: deberia cargarse ó cantidad ó bien importe.
+
+Control Asistencia (ausentismo):
+  - Se maneja por dias a faltar, faltados o llegadas tarde
+  - Todos los meses se carga una planilla en personal que luego ve la gente de sueldos
+  - puede ser por: pedido por examen, ausente sin aviso, enfermedad, llegada tarde, exedencia (pasado 3 meses cuando esta embarazada)
+  - cada motivo tiene una configuracion.
+      Dias descontados.
+      Sicord: Situacion revista 1, Situacion revista 2, Situacion revista 3
+    En Sicord se ponen FechaDesde y FechaHasta y cuantas licencias descontaba.
+
+
+   

@@ -1,0 +1,96 @@
+Make a golang script using GORM in Postgres to migrate  from the table:
+
+DetallesHab(
+	tipo_reg int8 NULL,
+	mes int8 NULL,
+	anio int8 NULL,
+	tipo_emp text NULL,
+	legajo int8 NULL,
+	cargo int8 NULL,
+	nombre_apellido text NULL,
+	documento int8 NULL,
+	cuil int8 NULL,
+	grupo_liquidacion int8 NULL,
+	descripcion_grupo_liquidacion text NULL,
+	codigo_tipo_planta int8 NULL,
+	descripcion_tipo_planta text NULL,
+	codigo_tipo_puesto int8 NULL,
+	descripcion_tipo_puesto text NULL,
+	codigo_grupo_personal int8 NULL,
+	descripcion_grupo_personal text NULL,
+	codigo_funcion int8 NULL,
+	descripcion_funcion text NULL,
+	codep text NULL,
+	descripcion_codep text NULL,
+	codigo_concepto int8 NULL,
+	descripcion_concepto text NULL,
+	codigo_entidad int8 NULL,
+	descripcion_entidad text NULL,
+	unidades numeric NULL,
+	importe numeric NULL,
+	anomes_retroactivo int8 NULL,
+	escalafon int8 NULL,
+	categoria int8 NULL,
+	descripcion text NULL
+)
+
+
+migrate to two tables. 
+
+The first one as a master called: liquis(
+	id bigserial NOT NULL,
+	created_at timestamptz NULL,
+	updated_at timestamptz NULL,
+	deleted_at timestamptz NULL,
+	id_agr int8 NULL,
+	id_plaper int4 NULL,
+	id_gruper int4 NULL,
+	anio_liq int4 NULL,
+	mes_liq int4 NULL,
+	anio_dev int4 NULL,
+	mes_dev int4 NULL,
+	anio_gan int4 NULL,
+	mes_gan int4 NULL,
+	tipo_liq text NULL,
+	stipo_liq int8 NULL,
+	fecha_pago timestamptz NULL,
+	descripcion text NULL,
+	anulacion text NULL,
+	fecha_liq text NULL,
+	id_estado int8 NULL,
+	nro_legajo_desde int4 NULL,
+	nro_legajo_hasta int4 NULL,
+	fec_ini_proc timestamptz NULL,
+	fec_fin_proc timestamptz NULL
+) 
+
+must be inserted the select values of:
+select distinct tipo_reg , mes, anio,tipo_emp  from DetallesHab
+
+and the second one as detail, called: liqui_cons(
+    id bigserial NOT NULL,
+	created_at timestamptz NULL,
+	updated_at timestamptz NULL,
+	deleted_at timestamptz NULL,
+	liqui_id int8 NULL,
+	nro_legajo int4 NULL,
+	nro_cargo int4 NULL,
+	anio_liqui int4 NULL,
+	anio_dev int4 NULL,
+	mes_dev int4 NULL,
+	fecha_desde timestamptz NULL,
+	concepto_id int8 NULL,
+	cantidad text NULL,
+	imp_unit numeric(12, 2) NULL,
+	imp_item numeric(12, 2) NULL,
+	tipo_concepto int8 NULL,
+	tipo_con_gan int8 NULL 
+)
+
+where liqui_id must have the value of liquis and 
+ liqui_cons.nro_legajo=DetallesHab.legajo and 
+ liqui_cons.nro_cargo=DetallesHab.cargo and 
+ liqui_cons.cantidad=DetallesHab.unidades and 
+ liqui_cons.imp_item=DetallesHab.importe
+
+ 
