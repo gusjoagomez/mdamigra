@@ -39,7 +39,3 @@ INSERT INTO public.concepto (activado, "creadoEn", "modificadoEn", "eliminadoEn"
 (true, '2022-12-06 11:58:32.691', NULL, NULL, '2022-12-06 11:58:32.689',  514, '2022-12-01 00:00:00.000', NULL, 'OBRA SOCIAL SAC EXEN', 'OBRA SOCIAL SAC EXEN', 'C', 0, 35, 35, NULL, -1, NULL, NULL, -1),
 (true, '2022-12-06 11:58:32.691', NULL, NULL, '2022-12-06 11:58:32.689',  981, '2022-12-01 00:00:00.000', NULL, 'AJUSTE GANANCIAS 22.', 'AJUSTE GANANCIAS 22.', 'C', 0, 35, 35, NULL, -1, NULL, NULL, -1);
 
-	
-	
-
-
