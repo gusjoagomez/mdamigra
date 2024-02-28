@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directory="/home/ntbdesa/go/src/mdamigra/detalleliqui"
+directory="/home/userdesa/go/src/mdamigra/detalleliqui"
 
 # Check if the directory exists
 if [ ! -d "$directory" ]; then

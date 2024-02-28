@@ -24,7 +24,7 @@ func main() {
 	var fechaDesde, fechaHasta *time.Time
 
 	// Ruta del archivo CSV a importar
-	filePath := "/home/ntbdesa/go/src/mdamigra/antecedentesJ50/antecedentes_NR.csv"
+	filePath := "/home/userdesa/go/src/mdamigra/antecedentesJ50/antecedentes_NR.csv"
 
 	// Configurar la conexión a la base de datos PostgreSQL
 	dsn := "host=localhost user=postgres password=password dbname=rrhh port=5432 sslmode=disable TimeZone=UTC"

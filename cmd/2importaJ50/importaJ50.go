@@ -18,8 +18,8 @@ import (
 
 func main() {
 
-	fmt.Println("Nada por hacer - Ya se migraron los datos")
-	os.Exit(1)
+	//	fmt.Println("Nada por hacer - Ya se migraron los datos")
+	//	os.Exit(1)
 
 	var fechaPresentacion *time.Time
 	var fechaAceptacion *time.Time
@@ -35,7 +35,7 @@ func main() {
 	db.AutoMigrate(&models.EmpleadoJ50{})
 
 	// Ruta del archivo CSV a importar
-	filePath := "/home/ntbdesa/go/src/mdamigra/antecedentesJ50/antecedentes_j50.csv"
+	filePath := "/home/userdesa/go/src/mdamigra/antecedentesJ50/antecedentes_j50.csv"
 
 	log.Println("***# leyendo archivo")
 	// Abrir el archivo CSV

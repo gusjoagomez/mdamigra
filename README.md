@@ -10,9 +10,11 @@ Muchas de estas utilidades estan agrupadas en varios programas dentro
 de cmd
 
 Antes de correr los siguienes proceso es conveniente restaurar el esquema que contiene los datos.
-Deberá restaurar en su base el archivo ubicado en: basedatos/esquemaMigracion.sql
+Deberá restaurar en su base el archivo ubicado en: basedatos/rrhh.sql
 
-psql -d rrhh < basedatos/esquemaMigracion.sql
+psql -d rrhh < basedatos/rrhh.sql
+
+(Hay otra opcion basedatos/esquemaMigracion.sql que tiene datos parecidos.. Creo que algnas tablas tienen modificados algunos tipos de campos. Pero la que deberia ser es rrhh.sql)
 
 ***
 ## Subproyecto1: 
@@ -39,7 +41,7 @@ La importacion de estos datos a las tablas consta de dos (2) pasos:
   Esto ultimo importará los datos del archivo detalle_A_01_2023.csv
   ATENCION: se programó un archivo de procesamiento por lotes (bash script) que automatiza la importacion de multiples archivos indicando una carpeta. Este script se encuentra junto con el ejecutable con el nombre importaMasivoCSV.sh. Sera simplemente ejecutar ./importaMasivoCSV.sh para importar todos los archivos. Revise  y modifique en caso de ser necesario, dentro de este script el path a donde buscar los archivos CSV
 
-  Paso 2:   
+  Paso 2: 
   * importadetliqui2: este paso lee de la tabla DetallesHab y genera registros en la tabla de liquidacion y tabla de detalle de conceptos.
 
  Para ejecutar este proceso ejecute simplemente:
@@ -47,7 +49,7 @@ La importacion de estos datos a las tablas consta de dos (2) pasos:
 
   Este proceso puede demorar varios minutos.
   Al finalizar las tablas liqui (liquidacion) y liqui_cons (conceptos de liquidacion) deberian estar con registros.
-   
+
 ***
 ## Subproyecto2: 
 
@@ -74,7 +76,6 @@ Este subproyecto consta de tres (3) pasos:
       - desde 01/01/1900 al 31/12/1995
       - desde 01/01/1996 al 31/12/2012
       - desde 01/01/2013 al 31/12/2024
-  
 
  NOTA: es conveniente respetar el orden de ejecucion en estos paso. En realidad los pasos 1 y 2 pueden ejecutarse indistintamente. Pero es condicion necesaria que el paso 3 sea ejecutado por ultimo, ya que es el paso que unifica los anteriores.
 
