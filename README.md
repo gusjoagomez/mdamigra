@@ -107,6 +107,7 @@ En este archivo se puede configurar las conexiones a base de datos y esquemas qu
 Ejemplo:
 
 ------------------------------------------------------------
+`
 [db]
 siradig="postgres://postgres:password@localhost:5432/rrhh"
 migracion="postgres://postgres:password@localhost:5432/rrhh"
@@ -116,6 +117,7 @@ legajos="postgres://postgres:password@localhost:5432/gestionrrhh"
 siradig="siradig"
 migracion="migracion"
 legajos="public"
+`
 ------------------------------------------------------------
 
 
