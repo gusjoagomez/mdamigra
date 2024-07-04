@@ -98,3 +98,22 @@ Podrá encontrar otras tablas de datos utiles en el esquema a restaurar como por
 
 Revisar y chequear los campos y su semantica de estas ultimas tablas con quien facilitó (Sabrina Iorgi) los reportes que dieron origen a estas tablas.
 
+
+### Configuración de las conexiones a base de datos.
+
+Dentro de cada directorio para correr algún programa se encuentra un directorio llamado "config" y dentro de este un archivo llamado "config.conf".
+En este archivo se puede configurar las conexiones a base de datos y esquemas que se usan en el programa.
+
+Ejemplo:
+
+------------------------------------------------------------
+[db] 
+siradig="postgres://postgres:password@localhost:5432/rrhh"
+migracion="postgres://postgres:password@localhost:5432/rrhh"
+legajos="postgres://postgres:password@localhost:5432/gestionrrhh"
+
+[schema]
+siradig="siradig"
+migracion="migracion"
+legajos="public"
+------------------------------------------------------------
